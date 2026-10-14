@@ -26,6 +26,10 @@ _Avoid_: Altitude, floor height
 A straight line on a floor plan, between two corners. An Edge is a Wall or an Open edge, and the user can change one kind to the other.
 _Avoid_: Segment, line
 
+**Corner**:
+A point where two Edges of an Area meet. The app stores the x and y of each Corner in meters, in the coordinate system of its Floor. The lengths and angles of the Edges come from the Corners.
+_Avoid_: Vertex, node, point
+
 **Wall**:
 An Edge that is a physical wall. The editor shows it as a solid line.
 
