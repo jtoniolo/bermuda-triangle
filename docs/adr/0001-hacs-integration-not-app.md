@@ -1,6 +1,6 @@
 # A HACS integration with a Lit panel, not a Home Assistant app
 
-The project is one custom integration in Python that the user installs with HACS (Marketplace from Home Assistant 2026.11). The floor plan editor and the live map are a sidebar panel in TypeScript with Lit. The panel uses the Home Assistant `ha-*` components and theme variables. We do not make a Home Assistant app (formerly "add-on"). The integration reads the Bermuda distances, calculates the Positions, stores the floor plans with the Home Assistant storage helper, and sends live data to the panel through Home Assistant WebSocket subscriptions. Its entities go on the existing Bermuda device of each Tracked device, with `entity.device_entry`.
+The project is one custom integration in Python that the user installs with HACS (Marketplace from Home Assistant 2026.11). The floor plan editor and the live map are a sidebar panel in TypeScript with Lit. The panel uses the Home Assistant theme variables. (Changed by [ADR-0002](0002-panel-architecture.md): the panel does not use the `ha-*` components.) We do not make a Home Assistant app (formerly "add-on"). The integration reads the Bermuda distances, calculates the Positions, stores the floor plans with the Home Assistant storage helper, and sends live data to the panel through Home Assistant WebSocket subscriptions. Its entities go on the existing Bermuda device of each Tracked device, with `entity.device_entry`.
 
 ## Considered options
 
@@ -12,7 +12,7 @@ The project is one custom integration in Python that the user installs with HACS
 
 - The stack that was fixed at the start (Next.js, Redux, Tailwind CSS, shadcn/ui, a TypeScript server) is replaced.
 - The position calculation runs in Python, so the entities update when no browser is open. It can use NumPy and SciPy, as BPS does.
-- The `ha-*` components are not a supported API for custom panels. Home Assistant can change them in a release. Alarmo uses them with the same risk.
+- The `ha-*` components are not a supported API for custom panels. Home Assistant can change them in a release. Alarmo uses them with the same risk. [ADR-0002](0002-panel-architecture.md) does not use them.
 - Bermuda is also a Python HACS integration. This form makes a later merge into Bermuda possible.
 - Battery Notes and Powercalc use the same `entity.device_entry` method. Home Assistant documents it only for helpers. No rule forbids it for other integrations.
 - No v1 decision may prevent a later floor plan image with a scale. Thus v1 accepts negative coordinates, and the stored floor plan data has a version number.
