@@ -1,12 +1,16 @@
 # bermuda-triangle
 
-A Home Assistant app. The user draws the floor plans of a home, places the scanners on the plans, and gets the calculated position of each tracked device. It works with the Bermuda integration.
+A Home Assistant custom integration. The user draws the floor plans of a home, places the scanners on the plans, and gets the calculated position of each tracked device. It works with the Bermuda integration.
 
 ## Language
 
-**App**:
-The Home Assistant app that this repo makes. Home Assistant used the name "add-on" before.
-_Avoid_: Add-on, addon
+**Integration**:
+The Home Assistant custom integration that this repo makes. The Bermuda integration is a different integration.
+_Avoid_: App, add-on, addon
+
+**Panel**:
+The page of the Integration in the Home Assistant sidebar. It has the floor plan editor and the live map.
+_Avoid_: App, UI, dashboard
 
 ### Geometry
 
@@ -31,7 +35,7 @@ A straight line on a floor plan, between two Corners. Two adjacent Areas share t
 _Avoid_: Segment, line
 
 **Corner**:
-A point where two Edges meet. Two Areas that touch use the same Corners and the same Edges. The app stores the x and y of each Corner in meters, in the coordinate system of the home. The lengths and angles of the Edges come from the Corners.
+A point where two Edges meet. Two Areas that touch use the same Corners and the same Edges. The Integration stores the x and y of each Corner in meters, in the coordinate system of the home. The lengths and angles of the Edges come from the Corners.
 _Avoid_: Vertex, node, point
 
 **Position**:
@@ -45,5 +49,5 @@ A Bluetooth receiver that Bermuda uses, for example an ESPHome Bluetooth proxy. 
 _Avoid_: Proxy, receiver, node, beacon
 
 **Tracked device**:
-A Bluetooth device that Bermuda follows, and that the app calculates a Position for.
+A Bluetooth device that Bermuda follows, and that the Integration calculates a Position for.
 _Avoid_: Tag, beacon, target
